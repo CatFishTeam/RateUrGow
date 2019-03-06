@@ -37,6 +37,7 @@ class LoginFormContainer extends Component {
                     Toastr.error(jsonBody.error)
                 } else {
                     Toastr.success(jsonBody.success)
+                    localStorage.setItem('token', jsonBody.token)
                 }
 
             })
