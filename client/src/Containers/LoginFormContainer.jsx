@@ -5,27 +5,36 @@ class LoginFormContainer extends Component {
     state = {
         username: "",
         password: "",
-    }
+    };
 
     handleChange = (value, field) => {
         this.setState({
             [field]: value
         })
-    }
+    };
 
     handleSubmit = (event) => {
-        event.preventDefault()
-        console.log(this.state)
+        event.preventDefault();
+        console.log(this.state);
 
-        fetch("/login_check",
+        fetch("http://127.0.0.1:3000/login_check",
             {
-                body: this.state,
-                method: "post"
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': "application/json"
+                }
             })
             .then((response) => {
-                console.log(response)
+                response.json()
             })
-    }
+            .then((data) => {
+                console.log(data)
+                localStorage.setItem('token', data.token)
+            })
+            .catch(error => console.log(error))
+    };
 
     render() {
         return (

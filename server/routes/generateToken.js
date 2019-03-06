@@ -11,8 +11,9 @@ router.post('/login_check', (req, res) => {
             password: req.body.password
         })
 
-        const user = query.exec()
+        query.exec()
             .then((user) => {
+                console.log(user)
                 if (user) {
                     const token = createToken({
                         firstName: user.firstName,
