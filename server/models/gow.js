@@ -7,7 +7,15 @@ const gowDetailSchema = new Schema({
     lastLame: String,
     age: {type: Number, min: 6, max: 99},
     nicknames : [String],
-    releasedDate: Date
+    releasedDate: Date,
+
+    //Physical
+    height: Number,
+    weight: Number,
+    IMC: Number,
+    eyesColor: String,
+    boobsSize: String,
+    boobsSoftness: String
 });
 
 module.exports = db.model("gowDetail", gowDetailSchema );

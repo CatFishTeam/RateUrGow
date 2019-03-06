@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import './App.scss';
+import './style/sass/main.sass';
 import LoginFormContainer from "./Containers/LoginFormContainer";
 import RegisterFormContainer from "./Containers/RegisterFormContainer";
 
@@ -10,7 +10,6 @@ class App extends Component {
             <RegisterFormContainer/>
             <LoginFormContainer/>
         </Fragment>
-
     );
   }
 }
