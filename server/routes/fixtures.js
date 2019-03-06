@@ -3,7 +3,7 @@ const gowDetail = require('../models/gow');
 const User = require('../models/user');
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/fixtures', (req, res) => {
     const user = new User()
     user.firstName = "Robin"
     user.lastName = "Regis"

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 
-class LoginFormContainer extends Component {
+class RegisterFormContainer extends Component {
     state = {
         username: "",
         password: "",
@@ -17,7 +17,7 @@ class LoginFormContainer extends Component {
         event.preventDefault();
         console.log(this.state);
 
-        fetch("http://127.0.0.1:3000/login_check",
+        fetch("http://127.0.0.1:3000/register",
             {
                 method: 'POST',
                 mode: 'cors',
@@ -38,9 +38,9 @@ class LoginFormContainer extends Component {
 
     render() {
         return (
-            <LoginForm onSubmit={this.handleSubmit} onChange={this.handleChange}/>
+            <RegisterForm onSubmit={this.handleSubmit} onChange={this.handleChange}/>
         )
     }
 }
 
-export default LoginFormContainer
+export default RegisterFormContainer

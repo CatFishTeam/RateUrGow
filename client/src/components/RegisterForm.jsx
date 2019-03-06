@@ -1,9 +1,17 @@
 import React, {PureComponent} from 'react'
 
-class LoginForm extends PureComponent {
+class RegisterForm extends PureComponent {
     render() {
         return (
             <form onSubmit={(event) => this.props.onSubmit(event)}>
+                <label htmlFor="firstname">Firstname</label>
+                <input type="text" name={"firstname"} id={"firstname"}
+                       onChange={(event) => this.props.onChange(event.currentTarget.value, "firstName")}/>
+
+                <label htmlFor="lastname">Lastname</label>
+                <input type="text" name={"lastname"} id={"lastname"}
+                       onChange={(event) => this.props.onChange(event.currentTarget.value, "lastName")}/>
+
                 <label htmlFor="username">Username</label>
                 <input type="text" name={"username"} id={"username"}
                        onChange={(event) => this.props.onChange(event.currentTarget.value, "username")}/>
@@ -17,4 +25,4 @@ class LoginForm extends PureComponent {
     }
 }
 
-export default LoginForm
+export default RegisterForm
