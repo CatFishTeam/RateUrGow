@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 app.use(cors());
 app.use(bodyParser.json());
 app.use(verifyToken);
-app.use(MovieRouter);
 app.use(GowRouter);
 app.use(SecurityRouter);
 app.use(FixturesRouter);

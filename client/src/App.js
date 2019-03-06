@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
+import './App.scss';
 import LoginFormContainer from "./Containers/LoginFormContainer";
 import RegisterFormContainer from "./Containers/RegisterFormContainer";
 
