@@ -37,8 +37,9 @@ services:
   client:
     image: node:10-alpine
     volumes:
-      - './client:/home/node/app'
-    working_dir: '/home/node/app'
+      - ./client:/home/node/app
+      - ./client/node_modules/
+    working_dir: /home/node/app
     command: 'yarn start'
     ports:
       - 3001:3000
