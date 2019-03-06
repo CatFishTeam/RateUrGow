@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import LoginForm from "../components/LoginForm";
+import Toastr from 'toastr'
+
 
 class LoginFormContainer extends Component {
     state = {
@@ -26,12 +28,17 @@ class LoginFormContainer extends Component {
                     'Content-Type': "application/json"
                 }
             })
-            .then((response) => {
-                response.json()
-            })
-            .then((data) => {
-                console.log(data)
-                localStorage.setItem('token', data.token)
+            .catch(error => console.log(error))
+            .then(response => response.json())
+            .then(jsonBody => {
+                console.log(jsonBody);
+
+                if (jsonBody.error) {
+                    Toastr.error(jsonBody.error)
+                } else {
+                    Toastr.success(jsonBody.success)
+                }
+
             })
             .catch(error => console.log(error))
     };

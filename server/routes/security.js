@@ -17,7 +17,10 @@ router.post('/login_check', (req, res) => {
 
                     console.log(token)
 
-                    res.send({token})
+                    res.send({
+                        token,
+                        success: "Vous etes bien connecte"
+                    })
                 } else {
                     res.status(400).send({
                         error: "Invalid credentials"
@@ -41,12 +44,16 @@ router.post('/register', (req, res) => {
         }).then((user) => {
             console.log(user)
             if (user) {
-                res.send("L'utilisateur existe deja")
+                res.status(400).send({
+                    error: "L'utilisateur existe deja"
+                })
             } else {
                 const user = new User(req.body)
                 user.save()
 
-                res.send(user)
+                res.send({
+                    success: "Le compte a ete cree"
+                })
             }
         })
             .catch(error => console.log(error))
