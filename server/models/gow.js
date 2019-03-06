@@ -3,11 +3,11 @@ const db = require('../libs/db');
 
 const Schema = mongoose.Schema
 const gowDetailSchema = new Schema({
-    firstname: String,
-    lastname: String,
+    firstName: String,
+    lastLame: String,
     age: {type: Number, min: 6, max: 99},
-    nicknames : String,
-    releaseDate: Date
+    nicknames : [String],
+    releasedDate: Date
 });
 
 module.exports = db.model("gowDetail", gowDetailSchema );

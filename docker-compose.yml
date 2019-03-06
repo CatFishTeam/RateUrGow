@@ -21,7 +21,7 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
 
   server:
-    image: node:7.7.2-alpine
+    image: node:10-alpine
     volumes:
       - ./server:/home/node/app:rw,consistent
     working_dir: /home/node/app
@@ -33,3 +33,12 @@ services:
     command: 'npm start'
     ports:
       - 3000:3000
+
+  client:
+    image: node:10-alpine
+    volumes:
+      - './client:/home/node/app'
+    working_dir: '/home/node/app'
+    command: 'yarn start'
+    ports:
+      - 3001:3000
