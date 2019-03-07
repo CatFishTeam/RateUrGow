@@ -15,8 +15,8 @@ class GowCard extends Component {
     render() {
         return (
             <div className="column is-one-third card">
-                <Link to={`/gow/${this.props.gow._id}`}>
-                    <div className="card-image">``
+                <Link to={/gow/ + this.props.gow._id}>
+                    <div className="card-image">
                         <figure className="image">
                             <Slider images={this.props.gow.pictures}/>
                         </figure>
