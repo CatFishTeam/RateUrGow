@@ -16,5 +16,8 @@ app.use(bodyParser.json());
 app.use(GowRouter);
 app.use(SecurityRouter);
 app.use(FixturesRouter);
+app.use(function(req, res, next) {
+    res.status(404).send('Sorry cant find that!');
+});
 
 app.listen(3000, () => console.log('Listening'));
