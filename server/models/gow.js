@@ -15,24 +15,24 @@ const gowDetailSchema = new Schema({
         weight: Number,
         eyesColor: String,
         boobsSize: String,
-        boobsRating: Number,
+        boobsRating: {type: Number, min: 0, max: 10},
         buttSize: Number,
-        buttRating: Number
+        buttRating: {type: Number, min: 0, max: 10}
     },
 
     skills: {
-        cooking: Number,
-        cleaning: Number,
-        ironing: Number,
+        cooking: {type: Number, min: 0, max: 10},
+        cleaning: {type: Number, min: 0, max: 10},
+        ironing: {type: Number, min: 0, max: 10},
     },
 
     sexualPractices: {
-        blowjob: Number,
-        doggyStyle: Number,
-        cowgirl: Number,
-        missionary: Number,
-        spoon: Number,
-        sixnine: Number,
+        blowjob: {type: Number, min: 0, max: 10},
+        doggyStyle: {type: Number, min: 0, max: 10},
+        cowgirl: {type: Number, min: 0, max: 10},
+        missionary: {type: Number, min: 0, max: 10},
+        spoon: {type: Number, min: 0, max: 10},
+        sixnine: {type: Number, min: 0, max: 10},
     }
 });
 
