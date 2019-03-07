@@ -19,7 +19,6 @@ class AddGowFormContainer extends React.Component {
                 console.log(jsonBody);
             })
             .catch(error => console.log(error))
-        console.log()
     }
 
     render() {

@@ -6,7 +6,8 @@ const anonymousRoutes = [
     '/fixtures',
     '/gows',
     '/gow/add',
-    '/gow/:id'
+    '/gow/:id',
+    '/image-upload'
 ]
 
 const verifyToken = (req, res, next) => {
