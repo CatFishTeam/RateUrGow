@@ -7,7 +7,7 @@ class RegisterForm extends PureComponent {
                 <div className="field">
                     <label className="label" htmlFor="firstname">Firstname</label>
                     <div className="control">
-                        <input type="text" name={"firstname"} id={"firstname"}
+                        <input className={"input"} type="text" name={"firstname"} id={"firstname"}
                                onChange={(event) => this.props.onChange(event.currentTarget.value, "firstName")}/>
                     </div>
                 </div>
@@ -16,7 +16,7 @@ class RegisterForm extends PureComponent {
                 <div className="field">
                     <label className="label" htmlFor="lastname">Lastname</label>
                     <div className="control">
-                        <input type="text" name={"lastname"} id={"lastname"}
+                        <input className={"input"} type="text" name={"lastname"} id={"lastname"}
                                onChange={(event) => this.props.onChange(event.currentTarget.value, "lastName")}/>
                     </div>
                 </div>
@@ -24,7 +24,7 @@ class RegisterForm extends PureComponent {
                 <div className="field">
                     <label className="label" htmlFor="username">Username</label>
                     <div className="control">
-                        <input type="text" name={"username"} id={"username"}
+                        <input className={"input"} type="text" name={"username"} id={"username"}
                                onChange={(event) => this.props.onChange(event.currentTarget.value, "username")}/>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ class RegisterForm extends PureComponent {
                 <div className="field">
                     <label className="label" htmlFor="password">Password</label>
                     <div className="control">
-                        <input type="password" name={"password"} id={"password"}
+                        <input className={"input"} type="password" name={"password"} id={"password"}
                                onChange={(event) => this.props.onChange(event.currentTarget.value, "password")}/>
                     </div>
                 </div>

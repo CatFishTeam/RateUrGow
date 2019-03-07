@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {login} from "../redux/actions/security";
 import LoginForm from "../components/LoginForm";
+import Toastr from 'toastr'
+
 
 class LoginFormContainer extends Component {
     state = {
@@ -16,8 +18,6 @@ class LoginFormContainer extends Component {
     };
 
     handleSubmit = (event) => {
-        //event.preventDefault();
-        //console.log(this.state);
         this.props.dispatch(login.this.state, this.props.dispatch);
     };
 
