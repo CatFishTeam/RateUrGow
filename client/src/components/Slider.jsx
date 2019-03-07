@@ -35,11 +35,14 @@ class Slider extends React.Component {
         this.state = {
             images: props.images,
             currentIndex: 0,
-            translateValue: 0
+            translateValue: 0,
+            loop: false
         }
 
         this.goToPrevSlide = this.goToPrevSlide.bind(this);
         this.goToNextSlide = this.goToNextSlide.bind(this);
+
+        this.loopNext()
     }
 
     goToPrevSlide(e) {
@@ -70,6 +73,11 @@ class Slider extends React.Component {
             currentIndex: prevState.currentIndex + 1,
             translateValue: prevState.translateValue + -(this.slideWidth())
         }));
+    }
+
+    loopNext(time = 5000){
+        if(this.loop) return;
+        setInterval(() => this.goToNextSlide(document.createEvent('Events')), time);
     }
 
     slideWidth() {

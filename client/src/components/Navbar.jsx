@@ -52,7 +52,7 @@ class Navbar extends PureComponent {
                         <div className="navbar-start">
                             <Link className={"navbar-item"} to="/">Home</Link>
                             <Link className={"navbar-item"} to="/gows">Gows</Link>
-                            <Link className={"navbar-item"} to="/addGow/">Ajouter une Gow</Link>
+                            <Link className={"navbar-item"} to="/gow/add">Ajouter une Gow</Link>
                         </div>
 
                         <div className="navbar-end">

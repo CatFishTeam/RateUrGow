@@ -18,7 +18,7 @@ class GowCard extends Component {
                 <Link to={/gow/ + this.props.gow._id}>
                     <div className="card-image">
                         <figure className="image">
-                            <Slider images={this.props.gow.pictures}/>
+                            <Slider images={this.props.gow.pictures} loop={true}/>
                         </figure>
                     </div>
                     <div className="card-content">
