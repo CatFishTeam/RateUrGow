@@ -26,12 +26,12 @@ router.get('/fixtures', (req, res) => {
         boobsSize: "Inexistant",
         boobsRating: 0,
         buttSize: 72,
-        buttRating: 8
+        buttRating: 4
     }
 
     gow.skills = {
-        cooking: 10,
-        cleaning: 3,
+        cooking: 5,
+        cleaning: 1.5,
         ironing: 0,
     }
 
@@ -61,22 +61,22 @@ router.get('/fixtures', (req, res) => {
         boobsSize: "Inexistant",
         boobsRating: 0,
         buttSize: 72,
-        buttRating: 8
+        buttRating: 4
     }
 
     gow2.skills = {
-        cooking: 10,
-        cleaning: 3,
+        cooking: 5,
+        cleaning: 1.5,
         ironing: 0,
     }
 
     gow2.sexualPractices = {
-        blowjob: 10,
-        doggyStyle: 10,
-        cowgirl: 10,
-        missionary: 10,
-        spoon: 11,
-        sixnine: 9,
+        blowjob: 5,
+        doggyStyle: 5,
+        cowgirl: 5,
+        missionary: 5,
+        spoon: 5,
+        sixnine: 4.5,
     }
 
     gow2.save()
@@ -96,22 +96,22 @@ router.get('/fixtures', (req, res) => {
         boobsSize: "Inexistant",
         boobsRating: 0,
         buttSize: 72,
-        buttRating: 8
+        buttRating: 4
     }
 
     gow3.skills = {
-        cooking: 10,
-        cleaning: 3,
+        cooking: 5,
+        cleaning: 1.5,
         ironing: 0,
     }
 
     gow3.sexualPractices = {
-        blowjob: 10,
-        doggyStyle: 10,
-        cowgirl: 10,
-        missionary: 10,
-        spoon: 11,
-        sixnine: 9,
+        blowjob: 5,
+        doggyStyle: 5,
+        cowgirl: 5,
+        missionary: 5,
+        spoon: 5,
+        sixnine: 4.5,
     }
 
     gow3.save()
