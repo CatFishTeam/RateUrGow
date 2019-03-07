@@ -53,6 +53,32 @@ router.get('/fixtures', (req, res) => {
     gow2.nicknames = ['Emrata', 'My Babe']
     gow2.pictures = ['emily1.jpg', 'emily2.jpg', 'emily3.jpg']
     gow2.releasedDate = new Date()
+
+    gow2.physical = {
+        height: 212,
+        weight: 400,
+        eyesColor: "Verron",
+        boobsSize: "Inexistant",
+        boobsRating: 0,
+        buttSize: 72,
+        buttRating: 8
+    }
+
+    gow2.skills = {
+        cooking: 10,
+        cleaning: 3,
+        ironing: 0,
+    }
+
+    gow2.sexualPractices = {
+        blowjob: 10,
+        doggyStyle: 10,
+        cowgirl: 10,
+        missionary: 10,
+        spoon: 11,
+        sixnine: 9,
+    }
+
     gow2.save()
 
     const gow3 = new gowDetail()
@@ -62,6 +88,32 @@ router.get('/fixtures', (req, res) => {
     gow3.nicknames = ['Natalie007']
     gow3.pictures = ['natalya1.jpg', 'natalya2.jpg', 'natalya3.jpg', 'natalya4.jpg', 'natalya5.jpg']
     gow3.releasedDate = new Date()
+
+    gow3.physical = {
+        height: 212,
+        weight: 400,
+        eyesColor: "Verron",
+        boobsSize: "Inexistant",
+        boobsRating: 0,
+        buttSize: 72,
+        buttRating: 8
+    }
+
+    gow3.skills = {
+        cooking: 10,
+        cleaning: 3,
+        ironing: 0,
+    }
+
+    gow3.sexualPractices = {
+        blowjob: 10,
+        doggyStyle: 10,
+        cowgirl: 10,
+        missionary: 10,
+        spoon: 11,
+        sixnine: 9,
+    }
+
     gow3.save()
 
     res.status(200).send()

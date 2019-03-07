@@ -11,12 +11,15 @@ let AddGowForm = props => {
         </div>
 
         <Field component={FieldFileInput} name={"images"}/>
-        <button className="button is-primary" type="submit" disabled={pristine || submitting}>
-            Submit
-        </button>
-        <button className="button is-light" type="button" disabled={pristine || submitting} onClick={reset}>
-            Clear Values
-        </button>
+
+        <div className="field is-grouped">
+            <div className="control">
+                <button className="button is-primary is-link" type="submit" disabled={pristine || submitting}>Submit</button>
+            </div>
+            <div className="control">
+                <button className="button is-light is-text" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+            </div>
+        </div>
     </form>
 }
 
