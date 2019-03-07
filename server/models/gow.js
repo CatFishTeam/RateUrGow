@@ -10,13 +10,30 @@ const gowDetailSchema = new Schema({
     releasedDate: Date,
     pictures: [String],
 
-    //Physical
-    height: Number,
-    weight: Number,
-    IMC: Number,
-    eyesColor: String,
-    boobsSize: String,
-    boobsSoftness: String
+    physical : {
+        height: Number,
+        weight: Number,
+        eyesColor: String,
+        boobsSize: String,
+        boobsRating: Number,
+        buttSize: Number,
+        buttRating: Number
+    },
+
+    skills: {
+        cooking: Number,
+        cleaning: Number,
+        ironing: Number,
+    },
+
+    sexualPractices: {
+        blowjob: Number,
+        doggyStyle: Number,
+        cowgirl: Number,
+        missionary: Number,
+        spoon: Number,
+        sixnine: Number,
+    }
 });
 
 module.exports = db.model("gowDetail", gowDetailSchema );
