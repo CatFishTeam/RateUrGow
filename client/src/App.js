@@ -35,8 +35,8 @@ function AppRouter() {
                         <Route path="/login/" component={LoginFormContainer}/>
                         <Route path="/register/" component={RegisterFormContainer}/>
                         <Route path="/gows/" component={GowsContainer}/>
-                        <Route path="/gow/:id" component={GowDetailContainer}/>
                         <Route path="/gow/add" component={AddGowFormContainer}/>
+                        <Route path="/gow/:id" component={GowDetailContainer}/>
                         <Route component={NoMatch}/>
                     </Switch>
                 </div>
