@@ -1,18 +1,19 @@
 import React, {Component, Fragment} from 'react'
 import GowCard from "../components/GowCard";
+import GowDetail from "../components/GowDetail";
 
 
-class GowsContainer extends Component {
+class GowDetailContainer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            gows: []
+            gow: null
         };
     }
 
     componentDidMount() {
-        fetch("http://127.0.0.1:3000/gows",
+        fetch(`http://127.0.0.1:3000/gow/${this.props.match.params.id}`,
             {
                 method: 'GET',
                 mode: 'cors',
@@ -24,7 +25,7 @@ class GowsContainer extends Component {
             .then(jsonBody => {
                 console.log(jsonBody);
                 this.setState({
-                    gows: jsonBody.gows
+                    gow: jsonBody.gow
                 })
 
             })
@@ -35,19 +36,12 @@ class GowsContainer extends Component {
     render() {
         return (
             <Fragment>
-                <div className="columns">
-                    <h1 className="column title">Gows :</h1>
-                </div>
-                <div className="columns">
-                    {this.state.gows.length > 0 &&
-                    this.state.gows.map(gow => {
-                        return <GowCard key={gow._id} gow={gow}/>
-                    })
-                    }
-                </div>
+                {this.state.gow &&
+                    <GowDetail gow={this.state.gow}/>
+                }
             </Fragment>
         )
     }
 }
 
-export default GowsContainer
+export default GowDetailContainer

@@ -5,10 +5,12 @@ const anonymousRoutes = [
     '/register',
     '/fixtures',
     '/gows',
-    '/gow/add'
+    '/gow/add',
+    '/gow/:id'
 ]
 
 const verifyToken = (req, res, next) => {
+    console.log(req.path)
     if (anonymousRoutes.includes(req.path)) {
         next();
     } else {

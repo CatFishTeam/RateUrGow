@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const moment = require('moment');
 
 
-class GowCard extends Component {
+class GowDetail extends Component {
 
     constructor(props) {
         super(props);
@@ -14,9 +14,9 @@ class GowCard extends Component {
 
     render() {
         return (
-            <div className="column is-one-third card">
-                <Link to={`/gow/${this.props.gow._id}`}>
-                    <div className="card-image">``
+            <div className={"gow-container"}>
+                <Link to="/gow/test">
+                    <div className="card-image">
                         <figure className="image">
                             <Slider images={this.props.gow.pictures}/>
                         </figure>
@@ -42,4 +42,4 @@ class GowCard extends Component {
     }
 }
 
-export default GowCard
+export default GowDetail
