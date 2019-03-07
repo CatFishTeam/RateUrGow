@@ -5,6 +5,7 @@ import GowsContainer from "./containers/GowsContainer";
 import NavbarContainer from "./containers/NavbarContainer";
 import LoginFormContainer from "./containers/LoginFormContainer";
 import RegisterFormContainer from "./containers/RegisterFormContainer";
+import GowDetailContainer from "./containers/GowDetailContainer";
 
 
 function Index() {
@@ -21,6 +22,7 @@ function AppRouter() {
                     <Route path="/login/" component={LoginFormContainer}/>
                     <Route path="/register/" component={RegisterFormContainer}/>
                     <Route path="/gows/" component={GowsContainer}/>
+                    <Route path="/gow/:id" component={GowDetailContainer}/>
                 </div>
             </React.Fragment>
         </Router>);

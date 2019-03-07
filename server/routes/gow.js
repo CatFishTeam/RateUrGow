@@ -14,4 +14,19 @@ router.get('/gows', (req, res) => {
         .catch(error => console.log(error))
 })
 
-module.exports =  router;
+router.get('/gow/:id', (req, res) => {
+    console.log(req.params.id)
+    GowDetails.findOne({
+        _id: req.params.id
+    })
+        .then((gow) => {
+            console.log(gow)
+
+            res.send({
+                gow,
+            })
+        })
+        .catch(error => console.log(error))
+})
+
+module.exports = router;
