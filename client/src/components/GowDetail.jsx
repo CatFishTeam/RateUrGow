@@ -75,6 +75,24 @@ function SexualPractices(props) {
     )
 }
 
+function GlobalRating(props) {
+    let calc = 0;
+
+    console.log(props)
+
+    calc += (props.gow.physical.boobsRating + props.gow.physical.buttRating) * 2
+
+    Object.keys(props.gow.skills).forEach(function(key) {
+        calc += props.gow.skills[key]
+    });
+
+    Object.keys(props.gow.sexualPractices).forEach(function(key) {
+        calc += props.gow.sexualPractices[key] * 3
+    });
+
+    return <p>{(calc/11).toFixed(2)}/10</p>
+}
+
 class GowDetail extends Component {
 
     constructor(props) {
@@ -95,7 +113,7 @@ class GowDetail extends Component {
                     </div>
                     <div className="column">
                         <p className="subtitle is-6 text-align-right">Age : {this.props.gow.age} ans</p>
-                        <p className="subtitle is-6 text-align-right">Note globale : </p>
+                        <p className="subtitle is-6 text-align-right">Note globale : <GlobalRating gow={this.props.gow}/></p>
                     </div>
                 </div>
 
