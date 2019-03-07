@@ -5,6 +5,7 @@ const anonymousRoutes = [
     '/register',
     '/fixtures',
     '/gows',
+    '/gow/add',
     '/gow/:id'
 ]
 
