@@ -38,7 +38,7 @@ class GowsContainer extends Component {
         return (
             <div>
                 <h1>Gows :</h1>
-                <div className="columns is-mobile">
+                <div className="columns">
                     {this.state.gows.length > 0 &&
                         this.state.gows.map(gow => {
                             return <GowCard key={gow._id} gow={gow}/>
