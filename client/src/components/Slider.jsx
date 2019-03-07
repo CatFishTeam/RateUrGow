@@ -1,12 +1,17 @@
 import React from 'react'
 
 const Slide = ({image}) => {
-    const styles = {
+    let styles = {
         backgroundImage: `url(/pictures/${image})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 60%'
     }
+
+    if (image.startsWith('http://')) {
+        styles = {backgroundImage: `url(${image})`,}
+    }
+
     return <div className="slide" style={styles}></div>
 }
 
