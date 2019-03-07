@@ -4,10 +4,11 @@ const db = require('../libs/db');
 const Schema = mongoose.Schema
 const gowDetailSchema = new Schema({
     firstName: String,
-    lastLame: String,
+    lastName: String,
     age: {type: Number, min: 6, max: 99},
     nicknames : [String],
     releasedDate: Date,
+    pictures: [String],
 
     //Physical
     height: Number,
