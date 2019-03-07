@@ -4,6 +4,7 @@ import LoginFormContainer from "./Containers/LoginFormContainer";
 import RegisterFormContainer from "./Containers/RegisterFormContainer";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import 'bulma'
+import GowsContainer from "./Containers/GowsContainer";
 
 
 function Index() {
@@ -31,6 +32,7 @@ function AppRouter() {
                     <div id="navbarBasicExample" className="navbar-menu">
                         <div className="navbar-start">
                             <Link className={"navbar-item"} to="/">Home</Link>
+                            <Link className={"navbar-item"} to="/gows/">Gows</Link>
                         </div>
 
                         <div className="navbar-end">
@@ -44,6 +46,7 @@ function AppRouter() {
                     <Route path="/" exact component={Index}/>
                     <Route path="/login/" component={LoginFormContainer}/>
                     <Route path="/register/" component={RegisterFormContainer}/>
+                    <Route path="/gows/" component={GowsContainer}/>
                 </div>
             </div>
         </Router>

@@ -6,6 +6,7 @@ const User = require("../models/user")
 router.post('/login_check', (req, res) => {
     console.log(req.body)
     if (req.body.username && req.body.password) {
+        console.log(req.body)
         User.findOne(req.body)
             .then((user) => {
                 console.log(user)

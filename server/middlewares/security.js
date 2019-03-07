@@ -1,7 +1,14 @@
 const {verifyJWTToken} = require('../libs/auth')
 
+const anonymousRoutes = [
+    '/login_check',
+    '/register',
+    '/fixtures',
+    '/gows'
+]
+
 const verifyToken = (req, res, next) => {
-    if (req.path === '/login_check' || req.path === '/register' || req.path === '/fixtures') {
+    if (anonymousRoutes.includes(req.path)) {
         next();
     } else {
         const auth = req.get('Authorization');
@@ -10,15 +17,15 @@ const verifyToken = (req, res, next) => {
         } else {
             verifyJWTToken(auth.replace('Bearer ', ''))
                 .then(decodedToken => {
-                req.user = decodedToken;
-                next();
-            })
+                    req.user = decodedToken;
+                    next();
+                })
                 .catch(error => res.status(400).send({
                     error: "JWT TOKEN invalid",
                     details: error
                 }))
         }
     }
-}
+};
 
 module.exports = verifyToken

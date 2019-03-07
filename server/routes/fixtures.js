@@ -13,9 +13,10 @@ router.get('/fixtures', (req, res) => {
 
     const gow = new gowDetail()
     gow.firstName = 'Guillaume'
-    gow.lastLame = 'Pham Ngoc'
+    gow.lastName = 'Pham Ngoc'
     gow.age = 29
     gow.nicknames = ['Guigui', 'Minimus', 'Vieux-man']
+    gow.pictures = ['guigui1.jpeg', 'guigui2.jpg', 'guigui3.jpeg', 'guigui4.jpg']
     gow.releasedDate = new Date()
     gow.save()
 
