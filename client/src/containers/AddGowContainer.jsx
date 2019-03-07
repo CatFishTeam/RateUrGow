@@ -18,7 +18,30 @@ class AddGowContainer extends Component {
     };
 
     handleSubmit = (event) => {
-        this.props.dispatch(login.this.state, this.props.dispatch);
+        event.preventDefault();
+        console.log(this.state);
+
+        fetch("http://127.0.0.1:3000/addGow",
+            {
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(jsonBody => {
+                console.log(jsonBody);
+
+                if (jsonBody.error) {
+                    Toastr.error(jsonBody.error)
+                } else {
+                    Toastr.success(jsonBody.success)
+                }
+
+            })
+            .catch(error => console.log(error))
     };
 
     render() {
