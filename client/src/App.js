@@ -15,6 +15,7 @@ function AppRouter() {
             <React.Fragment>
                 <NavbarContainer/>
                 <div className="container">
+                    <Route path="/" exact component={Index}/>
                     <Route path="/login/" component={LoginFormContainer}/>
                     <Route path="/register/" component={RegisterFormContainer}/>
                 </div>
