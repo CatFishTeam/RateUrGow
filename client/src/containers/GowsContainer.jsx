@@ -38,7 +38,7 @@ class GowsContainer extends Component {
                 <div className="columns">
                     <h1 className="column title">Gows :</h1>
                 </div>
-                <div className="columns">
+                <div className="columns is-multiline">
                     {this.state.gows.length > 0 &&
                     this.state.gows.map(gow => {
                         return <GowCard key={gow._id} gow={gow}/>
