@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react'
-import GowCard from "../components/GowCard";
 import GowDetail from "../components/GowDetail";
 
 

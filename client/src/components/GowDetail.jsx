@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import Slider from "./Slider";
 
-const moment = require('moment');
-
-
 function PhysicalDetails(props) {
     return (
         <ul>
