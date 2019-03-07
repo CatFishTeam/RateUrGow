@@ -1,8 +1,7 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import FieldFileInput from "./FieldFileInput";
-import Slider from "./GowDetail";
-import Rate from 'rc-rate';
+import {RenderRatingField} from "./RenderRatingField";
 
 let AddGowForm = props => {
     const {handleSubmit, pristine, reset, submitting} = props
@@ -50,7 +49,14 @@ let AddGowForm = props => {
                             <label htmlFor="boobsSize">Poitrine</label>
                             <Field className={"input"} name="boobsSize" component="input" type="text"/>
                         </div>
-                        <Rate/>
+                        <Field
+                            name="myStars"
+                            initialStars={0}
+                            starCount={5}
+                            type="number"
+                            starSize={24}
+                            topTxt={'Boobs Rating'}
+                            component={RenderRatingField} />
                         <div className="field">
                             <label htmlFor="buttSize">Fesses</label>
                             <Field className={"input"} name="buttSize" component="input" type="text"/>
