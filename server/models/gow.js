@@ -8,7 +8,15 @@ const gowDetailSchema = new Schema({
     age: {type: Number, min: 6, max: 99},
     nicknames : [String],
     releasedDate: Date,
-    pictures: [String]
+    pictures: [String],
+
+    //Physical
+    height: Number,
+    weight: Number,
+    IMC: Number,
+    eyesColor: String,
+    boobsSize: String,
+    boobsSoftness: String
 });
 
 module.exports = db.model("gowDetail", gowDetailSchema );

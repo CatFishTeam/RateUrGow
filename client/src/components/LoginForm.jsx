@@ -3,7 +3,10 @@ import React, {PureComponent} from 'react'
 class LoginForm extends PureComponent {
     render() {
         return (
-            <form onSubmit={(event) => this.props.onSubmit(event)}>
+            <form onSubmit={(event) => {
+                event.preventDefault();
+                this.props.onSubmit()}}
+            >
                 <div className="field">
                     <label className="label" htmlFor="username">Username</label>
                     <div className="control">
