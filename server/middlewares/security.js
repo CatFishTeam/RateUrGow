@@ -4,7 +4,8 @@ const anonymousRoutes = [
     '/login_check',
     '/register',
     '/fixtures',
-    '/gows'
+    '/gows',
+    '/gow/add'
 ]
 
 const verifyToken = (req, res, next) => {
