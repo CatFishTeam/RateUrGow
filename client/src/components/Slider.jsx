@@ -9,7 +9,7 @@ const Slide = ({image}) => {
     }
 
     if (image.startsWith('http://')) {
-        styles = {backgroundImage: `url(${image})`,}
+        styles.backgroundImage = `url(${image})`
     }
 
     return <div className="slide" style={styles}></div>
