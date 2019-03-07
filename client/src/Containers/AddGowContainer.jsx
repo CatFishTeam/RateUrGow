@@ -5,7 +5,7 @@ import LoginForm from "../components/LoginForm";
 import Toastr from 'toastr'
 
 
-class LoginFormContainer extends Component {
+class AddGowContainer extends Component {
     state = {
         username: "",
         password: "",
@@ -18,7 +18,7 @@ class LoginFormContainer extends Component {
     };
 
     handleSubmit = (event) => {
-        this.props.dispatch(login(this.state), this.props.dispatch);
+        this.props.dispatch(login.this.state, this.props.dispatch);
     };
 
     render() {

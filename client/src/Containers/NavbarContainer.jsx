@@ -18,7 +18,7 @@ class LoginFormContainer extends Component {
     };
 
     handleSubmit = (event) => {
-        this.props.dispatch(login(this.state), this.props.dispatch);
+        this.props.dispatch(login.this.state, this.props.dispatch);
     };
 
     render() {
