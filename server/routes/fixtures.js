@@ -18,6 +18,32 @@ router.get('/fixtures', (req, res) => {
     gow.nicknames = ['Guigui', 'Minimus', 'Vieux-man']
     gow.pictures = ['guigui1.jpeg', 'guigui2.jpg', 'guigui3.jpeg', 'guigui4.jpg']
     gow.releasedDate = new Date()
+
+    gow.physical = {
+        height: 212,
+        weight: 400,
+        eyesColor: "Verron",
+        boobsSize: "Inexistant",
+        boobsRating: 0,
+        buttSize: 72,
+        buttRating: 8
+    }
+
+    gow.skills = {
+        cooking: 10,
+        cleaning: 3,
+        ironing: 0,
+    }
+
+    gow.sexualPractices = {
+        blowjob: 0,
+        doggyStyle: 0,
+        cowgirl: 0,
+        missionary: 0,
+        spoon: 0,
+        sixnine: 0,
+    }
+
     gow.save()
 
     const gow2 = new gowDetail()
@@ -41,4 +67,4 @@ router.get('/fixtures', (req, res) => {
     res.status(200).send()
 })
 
-module.exports =  router;
+module.exports = router;

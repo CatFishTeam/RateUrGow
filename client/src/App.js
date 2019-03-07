@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import './style/sass/main.sass';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
 import GowsContainer from "./containers/GowsContainer";
 import NavbarContainer from "./containers/NavbarContainer";
 import LoginFormContainer from "./containers/LoginFormContainer";
@@ -16,8 +16,8 @@ function Index() {
 function NoMatch() {
     return (
         <Fragment>
-            <h1 className="title is-1" style={{'text-align': 'center'}}>Oups... La page est introuvable</h1>
-            <img style={{margin: "auto", display: "block"}} src="/images/404.png" alt=""/>
+            <h1 className="title is-1 text-align-center">Oups... La page est introuvable</h1>
+            <img className="block-align-center" src="/images/404.png" alt=""/>
         </Fragment>
     )
 }
@@ -30,13 +30,15 @@ function AppRouter() {
                       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossOrigin="anonymous"/>
                 <NavbarContainer/>
                 <div className="container">
-                    <Route path="/" exact component={Index}/>
-                    <Route path="/login/" component={LoginFormContainer}/>
-                    <Route path="/register/" component={RegisterFormContainer}/>
-                    <Route path="/gows/" component={GowsContainer}/>
-                    <Route path="/gow/:id" component={GowDetailContainer}/>
-                    <Route path="/gow/add" component={AddGowFormContainer}/>
-                    <Route component={NoMatch} />
+                    <Switch>
+                        <Route path="/" exact component={Index}/>
+                        <Route path="/login/" component={LoginFormContainer}/>
+                        <Route path="/register/" component={RegisterFormContainer}/>
+                        <Route path="/gows/" component={GowsContainer}/>
+                        <Route path="/gow/:id" component={GowDetailContainer}/>
+                        <Route path="/gow/add" component={AddGowFormContainer}/>
+                        <Route component={NoMatch}/>
+                    </Switch>
                 </div>
             </React.Fragment>
         </Router>);

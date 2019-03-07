@@ -1,0 +1,39 @@
+@import "slider";
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.block-align-center {
+  display: block;
+  margin: auto;
+}
+
+.gow-container {
+  .list-icons {
+    ul {
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+
+        img {
+          width: 32px;
+
+        }
+
+        .attribute-label {
+          margin-left: 10px;
+        }
+
+        .rating {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
