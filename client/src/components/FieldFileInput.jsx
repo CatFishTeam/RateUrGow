@@ -7,37 +7,39 @@ export default class FieldFileInput  extends Component{
             fileName: "",
             uploading: false
         }
-        this.fileName = ""
-        this.onChange = this.onChange.bind(this)
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
     }
 
     onChange = (e) => {
-        //const { input: { onChange } } = this.props
-        console.log(e.target.files)
+        if (this._isMounted) {
+            const files = Array.from(e.target.files)
+            this.setState({ uploading: true })
 
-        const files = Array.from(e.target.files)
-        this.setState({ uploading: true })
+            const formData = new FormData()
 
-        const formData = new FormData()
-
-        files.forEach((file, i) => {
-            formData.append(i, file)
-        })
-
-        fetch(`http://127.0.0.1:3000/image-upload`, {
-            method: 'POST',
-            body: formData
-        })
-            .then(res => res.json())
-            .then(images => {
-                console.log(this.props.input)
-                this.setState({
-                    fileName: "COUCOU",
-                    uploading: false
-                })
-                this.props.input.onChange(images);
+            files.forEach((file, i) => {
+                formData.append(i, file)
             })
-    }
+
+            fetch(`http://127.0.0.1:3000/image-upload`, {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(images => {
+                    if(this._isMounted) {
+                        this.setState({
+                            fileName: "COUCOU",
+                            uploading: false
+                        })
+                    }
+                    this.props.input.onChange(images);
+                })
+            }
+        }
 
     render(){
         return(

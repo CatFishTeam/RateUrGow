@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import './style/sass/main.sass';
-import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import GowsContainer from "./containers/GowsContainer";
 import NavbarContainer from "./containers/NavbarContainer";
 import LoginFormContainer from "./containers/LoginFormContainer";
