@@ -23,7 +23,6 @@ export const login = (user, dispatch) => {
         .then((data) => {
             console.log(data)
             dispatch(logUser(data.token))
-            //localStorage.setItem('token', data.token)
         })
         .catch(error => console.log(error))
 
