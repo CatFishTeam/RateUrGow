@@ -24,6 +24,7 @@ class AddGowFormContainer extends React.Component {
                     Toastr.error(jsonBody.error)
                 } else {
                     Toastr.success(jsonBody.success)
+                    this.props.history.push('/')
                 }
             })
             .catch(error => console.log(error))
