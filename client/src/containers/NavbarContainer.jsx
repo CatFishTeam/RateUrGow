@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 class NavbarContainer extends Component {
 
     componentDidMount() {
-        console.log(this.token)
     }
 
     render() {
