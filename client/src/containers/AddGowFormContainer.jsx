@@ -1,37 +1,64 @@
 import React from 'react';
 import AddGowForm from '../components/AddGowForm'
-import Toastr from 'toastr'
+import {connect} from "react-redux";
+import {addGow} from "../redux/actions/gow";
 
 
 class AddGowFormContainer extends React.Component {
+    state = {
+        firstName: "",
+        lastName: "",
+        age: "",
+        nicknames : "",
+        releasedDate: "",
+        pictures: "",
 
-    submit = values => {
-        console.log(values)
-        fetch("http://127.0.0.1:3000/gow/add",
-            {
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': "application/json"
-                },
-                body: JSON.stringify(values)
-            })
-            .then(response => response.json())
-            .then(jsonBody => {
-                console.log(jsonBody);
+        height: "",
+        weight: "",
+        eyesColor: "",
+        boobsSize: "",
+        boobsRating: "",
+        buttSize: "",
+        buttRating: "",
 
-                if (jsonBody.error) {
-                    Toastr.error(jsonBody.error)
-                } else {
-                    Toastr.success(jsonBody.success)
-                }
-            })
-            .catch(error => console.log(error))
+        cooking: "",
+        cleaning: "",
+        ironing: "",
+
+        blowjob: "",
+        doggyStyle: "",
+        cowgirl: "",
+        missionary: "",
+        spoon: "",
+        sixnine: "",
+    }
+
+
+    handleChange = (value, field) => {
+        this.setState({
+            [field]: value
+        })
+    };
+
+    handleSubmit = () => {
+        this.props.addGow(this.state)
     }
 
     render() {
-        return <AddGowForm onSubmit={this.submit} />
+        return <AddGowForm onSubmit={this.handleSubmit} onChange={this.handleChange}/>
     }
 }
 
-export default AddGowFormContainer
+const mapStateToProps = (state) => {
+    return {
+        gow: state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addGow: (gow) => dispatch(addGow(gow, dispatch))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddGowFormContainer)
