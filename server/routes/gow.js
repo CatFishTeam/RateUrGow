@@ -16,7 +16,9 @@ router.post('/gow/add', (req, res) => {
     gow.firstName = req.body.firstName
     gow.lastName = req.body.lastName
     gow.age = req.body.age
-    gow.nicknames = req.body.nicknames.split(',')
+    if(req.body.nicknames){
+        gow.nicknames = req.body.nicknames.split(',')
+    }
     gow.releasedDate = req.body.releasedDate
 
     gow.physical = {
@@ -45,16 +47,20 @@ router.post('/gow/add', (req, res) => {
     }
 
     gow.pictures = pictures;
-    gow.save((err, gow) => {
+    gow.save((err) => {
         if (err) {
-            console.log(err)
-            return json({ message:{
-                error: err
+            let errors = []
+            for(let k in err.errors){
+                errors.push(err.errors[k].message)
+            }
+            console.log(errors)
+            return res.status(500).json({ message: {
+                error: JSON.stringify(errors)
             }})
         }
         res.send({
             message: {
-                success: "La gow a bien ete cree",
+                success: "La gow a bien ete créée",
             }
         })
     });
