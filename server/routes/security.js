@@ -15,16 +15,17 @@ router.post('/login_check', (req, res) => {
                         firstName: user.firstName,
                         lastName: user.lastName,
                     })
-
-                    console.log(token)
-
                     res.send({
                         token,
-                        success: "Vous etes bien connecte"
+                        message: {
+                            success: "Vous etes bien connecte"
+                        }
                     })
                 } else {
                     res.status(400).send({
-                        error: "Invalid credentials"
+                        message: {
+                            error: "Invalid credentials"
+                        }
                     })
                 }
             })

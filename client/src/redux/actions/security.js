@@ -1,8 +1,9 @@
-export const logUser = (token) => {
+export const logUser = (token, message) => {
     return {
         type: "LOGGED_USER",
         payload: {
-            token
+            token,
+            message
         }
     }
 }
@@ -18,7 +19,7 @@ export const login = (user, dispatch) => {
             }
         })
         .then((response) => response.json())
-        .then(data => dispatch(logUser(data.token)))
+        .then(data => dispatch(logUser(data.token, data.message)))
         .catch(error => console.log(error))
 
     return {
