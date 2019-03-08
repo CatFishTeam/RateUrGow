@@ -36,13 +36,13 @@ class Navbar extends PureComponent {
             <div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
-                        <Link className={"navbar-item"} to="/">
-                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"
+                        <Link className={"navbar-item logo"} to="/">
+                            <img src="/images/logo.jpg" width="112" height="28"
                                  alt={"RateUrGow Logo"}/>
                         </Link>
 
                         <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                           data-target="navbarBasicExample" href="#">
+                           data-target="navbarBasicExample">
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
