@@ -10,7 +10,6 @@ router.get('/gows', (req, res) => {
 })
 
 router.post('/gow/add', (req, res) => {
-    console.log(req.body)
     const pictures = req.body.images.map( image => image.url )
     const gow = new GowDetails()
 
@@ -46,11 +45,20 @@ router.post('/gow/add', (req, res) => {
     }
 
     gow.pictures = pictures;
-    gow.save()
+    gow.save((err, gow) => {
+        if (err) {
+            console.log(err)
+            return json({ message:{
+                error: err
+            }})
+        }
+        res.send({
+            message: {
+                success: "La gow a bien ete cree",
+            }
+        })
+    });
 
-    res.send({
-        success: "La gow a bien ete cree",
-    })
 })
 
 router.get('/gow/:id', (req, res) => {

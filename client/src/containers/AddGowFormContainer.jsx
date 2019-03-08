@@ -6,7 +6,6 @@ import Toastr from 'toastr'
 class AddGowFormContainer extends React.Component {
 
     submit = values => {
-        console.log(values)
         fetch("http://127.0.0.1:3000/gow/add",
             {
                 method: 'POST',
@@ -16,15 +15,13 @@ class AddGowFormContainer extends React.Component {
                 },
                 body: JSON.stringify(values)
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                response.json()
+            })
             .then(jsonBody => {
                 console.log(jsonBody);
-
-                if (jsonBody.error) {
-                    Toastr.error(jsonBody.error)
-                } else {
-                    Toastr.success(jsonBody.success)
-                }
+                //Toastr[Object.keys(jsonBody.message)[0]](Object.values(jsonBody.message)[0])
             })
             .catch(error => console.log(error))
     }

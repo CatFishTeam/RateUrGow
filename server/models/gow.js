@@ -3,36 +3,36 @@ const db = require('../libs/db');
 
 const Schema = mongoose.Schema
 const gowDetailSchema = new Schema({
-    firstName: String,
-    lastName: String,
+    firstName: {type: String, default: ""},
+    lastName: {type: String, default: ""},
     age: {type: Number, min: 6, max: 99},
-    nicknames : [String],
+    nicknames : {type: [String], default: [""]},
     releasedDate: Date,
     pictures: [String],
 
     physical : {
         height: Number,
         weight: Number,
-        eyesColor: String,
-        boobsSize: String,
-        boobsRating: {type: Number, min: 0, max: 5},
+        eyesColor: {type: String, default: ""},
+        boobsSize: {type: String, default: ""},
+        boobsRating: {type: Number, min: 0, max: 5, default: 0},
         buttSize: Number,
-        buttRating: {type: Number, min: 0, max: 5}
+        buttRating: {type: Number, min: 0, max: 5, default: 0}
     },
 
     skills: {
-        cooking: {type: Number, min: 0, max: 5},
-        cleaning: {type: Number, min: 0, max: 5},
-        ironing: {type: Number, min: 0, max: 5},
+        cooking: {type: Number, min: 0, max: 5, default: 0},
+        cleaning: {type: Number, min: 0, max: 5, default: 0},
+        ironing: {type: Number, min: 0, max: 5, default: 0},
     },
 
     sexualPractices: {
-        blowjob: {type: Number, min: 0, max: 5},
-        doggyStyle: {type: Number, min: 0, max: 5},
-        cowgirl: {type: Number, min: 0, max: 5},
-        missionary: {type: Number, min: 0, max: 5},
-        spoon: {type: Number, min: 0, max: 5},
-        sixnine: {type: Number, min: 0, max: 5},
+        blowjob: {type: Number, min: 0, max: 5, default: 0},
+        doggyStyle: {type: Number, min: 0, max: 5, default: 0},
+        cowgirl: {type: Number, min: 0, max: 5, default: 0},
+        missionary: {type: Number, min: 0, max: 5, default: 0},
+        spoon: {type: Number, min: 0, max: 5, default: 0},
+        sixnine: {type: Number, min: 0, max: 5, default: 0},
     }
 });
 
