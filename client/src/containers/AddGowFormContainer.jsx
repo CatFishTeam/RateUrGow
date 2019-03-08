@@ -1,5 +1,7 @@
 import React from 'react';
 import AddGowForm from '../components/AddGowForm'
+import Toastr from 'toastr'
+
 
 class AddGowFormContainer extends React.Component {
 
@@ -17,6 +19,12 @@ class AddGowFormContainer extends React.Component {
             .then(response => response.json())
             .then(jsonBody => {
                 console.log(jsonBody);
+
+                if (jsonBody.error) {
+                    Toastr.error(jsonBody.error)
+                } else {
+                    Toastr.success(jsonBody.success)
+                }
             })
             .catch(error => console.log(error))
     }

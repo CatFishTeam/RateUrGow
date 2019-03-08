@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import Slider from "./Slider";
 import {Link} from "react-router-dom";
+import GlobalRating from '../helper'
 
 const moment = require('moment');
-
 
 class GowCard extends Component {
 
@@ -31,7 +31,7 @@ class GowCard extends Component {
                         </div>
 
                         <div className="content">
-                            Note :
+                            <GlobalRating gow={this.props.gow}/>
                             <br/>
                             <time>{moment(this.props.gow.releasedDate).format('DD/MM/YYYY')}</time>
                         </div>

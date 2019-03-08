@@ -14,6 +14,15 @@
   margin: auto;
 }
 
+.block-align-right {
+  display: block;
+  margin-left: auto;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
 .gow-container {
   .list-icons {
     ul {
@@ -24,6 +33,10 @@
 
         img {
           width: 32px;
+
+          & + div {
+            margin-left: 10px;
+          }
 
         }
 

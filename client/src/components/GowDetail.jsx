@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import Slider from "./Slider";
+import ReactStars from "react-stars";
+import GlobalRating from '../helper'
 
 function PhysicalDetails(props) {
     return (
@@ -20,13 +22,21 @@ function PhysicalDetails(props) {
                 <img src={`/images/boobs.svg`} alt=""/>
                 <p className="attribute-label">{props.attributes.boobsSize}</p>
                 <br/>
-                <p className="rating">{props.attributes.boobsRating}/10</p>
+                <ReactStars
+                    count={5}
+                    value={props.attributes.boobsRating}
+                    size={24}
+                />
             </li>
             <li>
                 <img src={`/images/butt.svg`} alt=""/>
                 <p className="attribute-label">{props.attributes.buttSize}</p>
                 <br/>
-                <p className="rating">{props.attributes.buttRating}/10</p>
+                <ReactStars
+                    count={5}
+                    value={props.attributes.buttRating}
+                    size={24}
+                />
             </li>
         </ul>
     )
@@ -39,7 +49,11 @@ function Skills(props) {
         list.push(
             <li>
                 <img src={`/images/${key}.svg`} alt=""/>
-                <p className="rating">{props.attributes[key]}/10</p>
+                <ReactStars
+                    count={5}
+                    value={props.attributes[key]}
+                    size={24}
+                />
             </li>
         )
     });
@@ -59,7 +73,11 @@ function SexualPractices(props) {
         list.push(
             <li>
                 <img src={`/images/${key}.png`} alt=""/>
-                <p className="rating">{props.attributes[key]}/10</p>
+                <ReactStars
+                    count={5}
+                    value={props.attributes[key]}
+                    size={24}
+                />
             </li>
         )
     });
@@ -70,24 +88,6 @@ function SexualPractices(props) {
             {list}
         </ul>
     )
-}
-
-function GlobalRating(props) {
-    let calc = 0;
-
-    console.log(props)
-
-    calc += (props.gow.physical.boobsRating + props.gow.physical.buttRating) * 2
-
-    Object.keys(props.gow.skills).forEach(function(key) {
-        calc += props.gow.skills[key]
-    });
-
-    Object.keys(props.gow.sexualPractices).forEach(function(key) {
-        calc += props.gow.sexualPractices[key] * 3
-    });
-
-    return <p>{(calc/11).toFixed(2)}/10</p>
 }
 
 class GowDetail extends Component {

@@ -31,10 +31,10 @@ function AppRouter() {
                 <NavbarContainer/>
                 <div className="container">
                     <Switch>
-                        <Route path="/" exact component={Index}/>
+                        <Route path="/" exact component={GowsContainer}/>
                         <Route path="/login/" component={LoginFormContainer}/>
                         <Route path="/register/" component={RegisterFormContainer}/>
-                        <Route path="/gows/" component={GowsContainer}/>
+                        {/*<Route path="/gows/" component={GowsContainer}/>*/}
                         <Route path="/gow/add" component={AddGowFormContainer}/>
                         <Route path="/gow/:id" component={GowDetailContainer}/>
                         <Route component={NoMatch}/>

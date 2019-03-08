@@ -12,10 +12,45 @@ router.get('/gows', (req, res) => {
 router.post('/gow/add', (req, res) => {
     console.log(req.body)
     const pictures = req.body.images.map( image => image.url )
-    const gow = new GowDetails(req.body)
-    gow.pictures = pictures
-    gow.releasedDate = new Date()
+    const gow = new GowDetails()
+
+    gow.firstName = req.body.firstName
+    gow.lastName = req.body.lastName
+    gow.age = req.body.age
+    gow.nicknames = req.body.nicknames.split(',')
+    gow.releasedDate = req.body.releasedDate
+
+    gow.physical = {
+        height: req.body.height,
+        weight: req.body.weight,
+        eyesColor: req.body.eyesColor,
+        boobsSize: req.body.boobsSize,
+        boobsRating: req.body.boobsRating,
+        buttSize: req.body.buttSize,
+        buttRating: req.body.buttRating
+    }
+
+    gow.skills = {
+        cooking: req.body.cooking,
+        cleaning: req.body.cleaning,
+        ironing: req.body.ironing,
+    }
+
+    gow.sexualPractices = {
+        blowjob: req.body.blowjob,
+        doggyStyle: req.body.doggyStyle,
+        cowgirl: req.body.cowgirl,
+        missionary: req.body.missionary,
+        spoon: req.body.spoon,
+        sixnine: req.body.sixnine,
+    }
+
+    gow.pictures = pictures;
     gow.save()
+
+    res.send({
+        success: "La gow a bien ete cree",
+    })
 })
 
 router.get('/gow/:id', (req, res) => {
