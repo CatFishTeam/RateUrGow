@@ -19,7 +19,6 @@ router.post('/gow/add', (req, res) => {
 })
 
 router.get('/gow/:id', (req, res) => {
-    console.log(req.params.id)
     GowDetails.findOne({
         _id: req.params.id
     })

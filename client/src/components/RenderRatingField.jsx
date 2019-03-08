@@ -19,7 +19,7 @@ export class RenderRatingField extends Component {
                 <label>{label}</label>
                 <div>
                     <label>
-                        <div className="col-lg-12">
+                        <div className="">
                             <h1>{topTxt}</h1>
                             <ReactStars
                                 count={starCount}

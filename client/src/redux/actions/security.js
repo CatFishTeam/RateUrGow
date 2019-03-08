@@ -17,13 +17,8 @@ export const login = (user, dispatch) => {
                 'Content-Type': "application/json"
             }
         })
-        .then((response) => {
-            response.json()
-        })
-        .then((data) => {
-            console.log(data)
-            dispatch(logUser(data.token))
-        })
+        .then((response) => response.json())
+        .then(data => dispatch(logUser(data.token)))
         .catch(error => console.log(error))
 
     return {
@@ -34,6 +29,7 @@ export const login = (user, dispatch) => {
 
 export const logout = () => {
     return {
-        type: "LOGOUT"
+        type: "LOGOUT",
+        payload: {}
     }
 }

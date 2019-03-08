@@ -16,8 +16,8 @@ class LoginFormContainer extends Component {
         })
     };
 
-    handleSubmit = (event) => {
-        this.props.dispatch(login(this.state), this.props.dispatch);
+    handleSubmit = () => {
+        this.props.login(this.state);
     };
 
     render() {
@@ -33,4 +33,10 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(LoginFormContainer)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (user) => dispatch(login, user, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)
