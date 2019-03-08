@@ -11,7 +11,6 @@ const anonymousRoutes = [
 ]
 
 const verifyToken = (req, res, next) => {
-    console.log(req.path)
     if (anonymousRoutes.includes(req.path)) {
         next();
     } else {

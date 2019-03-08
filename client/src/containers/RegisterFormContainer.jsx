@@ -16,7 +16,6 @@ class RegisterFormContainer extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
 
         fetch("http://127.0.0.1:3000/register",
             {
@@ -29,7 +28,6 @@ class RegisterFormContainer extends Component {
             })
             .then(response => response.json())
             .then(jsonBody => {
-                console.log(jsonBody);
 
                 if (jsonBody.error) {
                     Toastr.error(jsonBody.error)

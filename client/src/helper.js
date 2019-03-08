@@ -5,8 +5,6 @@ export default function GlobalRating(props) {
     let calc = 0;
     let coef = 0;
 
-    console.log(props)
-
     calc += (props.gow.physical.boobsRating + props.gow.physical.buttRating) * 2
     coef += 2 * 2
 

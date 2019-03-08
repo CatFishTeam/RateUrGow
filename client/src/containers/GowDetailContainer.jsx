@@ -22,7 +22,6 @@ class GowDetailContainer extends Component {
             })
             .then(response => response.json())
             .then(jsonBody => {
-                console.log(jsonBody);
                 this.setState({
                     gow: jsonBody.gow
                 })
