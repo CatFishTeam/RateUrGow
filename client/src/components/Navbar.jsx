@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {Fragment, PureComponent} from 'react'
 import {Link} from "react-router-dom";
 
 class Navbar extends PureComponent {
@@ -13,7 +13,7 @@ class Navbar extends PureComponent {
             if ($navbarBurgers.length > 0) {
 
                 // Add a click event on each of them
-                $navbarBurgers.forEach( el => {
+                $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
 
                         // Get the target from the "data-target" attribute
@@ -37,7 +37,8 @@ class Navbar extends PureComponent {
                 <nav className="navbar" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
                         <Link className={"navbar-item"} to="/">
-                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt={"RateUrGow Logo"}/>
+                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"
+                                 alt={"RateUrGow Logo"}/>
                         </Link>
 
                         <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -51,13 +52,20 @@ class Navbar extends PureComponent {
                     <div id="navbarBasicExample" className="navbar-menu">
                         <div className="navbar-start">
                             <Link className={"navbar-item"} to="/">Home</Link>
-                            {/*<Link className={"navbar-item"} to="/gows">Gows</Link>*/}
-                            <Link className={"navbar-item"} to="/gow/add">Ajouter une Gow</Link>
+                            {localStorage.getItem('token') &&
+                                <Link className={"navbar-item"} to="/gow/add">Ajouter une Gow</Link>
+                            }
                         </div>
 
                         <div className="navbar-end">
-                            <Link className={"navbar-item"} to="/login/">Se connecter</Link>
-                            <Link className={"navbar-item"} to="/register/">Creer un compte</Link>
+                            {localStorage.getItem('token') ? (
+                                <Link className={"navbar-item"} to="/logout/">Se deconnecter</Link>
+                            ) : (
+                                <Fragment>
+                                    <Link className={"navbar-item"} to="/login/">Se connecter</Link>
+                                    <Link className={"navbar-item"} to="/register/">Creer un compte</Link>
+                                </Fragment>
+                            )}
                         </div>
                     </div>
                 </nav>
