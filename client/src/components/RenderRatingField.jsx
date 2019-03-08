@@ -5,7 +5,6 @@ export class RenderRatingField extends Component {
     render() {
         const {
             label,
-            name,
             topTxt,
             starCount,
             input: { value, onChange },

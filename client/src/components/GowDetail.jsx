@@ -47,9 +47,9 @@ function PhysicalDetails(props) {
 function Skills(props) {
     const list = []
 
-    Object.keys(props.attributes).forEach(function(key) {
+    Object.keys(props.attributes).forEach(function (key) {
         list.push(
-            <li>
+            <li key={key}>
                 <img src={`/images/${key}.svg`} alt=""/>
                 <ReactStars
                     count={5}
@@ -72,9 +72,9 @@ function Skills(props) {
 function SexualPractices(props) {
     const list = []
 
-    Object.keys(props.attributes).forEach(function(key) {
+    Object.keys(props.attributes).forEach(function (key) {
         list.push(
-            <li>
+            <li key={key}>
                 <img src={`/images/${key}.png`} alt=""/>
                 <ReactStars
                     count={5}
@@ -114,7 +114,10 @@ class GowDetail extends Component {
                     </div>
                     <div className="column">
                         <p className="subtitle is-6 text-align-right">Age : {this.props.gow.age} ans</p>
-                        <p className="subtitle is-6 text-align-right">Note globale : <GlobalRating gow={this.props.gow}/></p>
+                        <div className="text-align-right">
+                            <p className="subtitle is-6 text-align-right rating-label">Note globale :</p>
+                            <GlobalRating gow={this.props.gow}/>
+                        </div>
                     </div>
                 </div>
 

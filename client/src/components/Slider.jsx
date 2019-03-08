@@ -34,6 +34,8 @@ const RightArrow = (props) => {
 }
 
 class Slider extends React.Component {
+    loopFunction = null
+
     constructor(props) {
         super(props)
 
@@ -48,6 +50,11 @@ class Slider extends React.Component {
         this.goToNextSlide = this.goToNextSlide.bind(this);
 
         this.loopNext()
+    }
+
+
+    componentWillUnmount() {
+        clearInterval(this.loopFunction)
     }
 
     goToPrevSlide(e) {
@@ -76,9 +83,9 @@ class Slider extends React.Component {
         }));
     }
 
-    loopNext(time = 5000){
-        if(this.loop) return;
-        setInterval(() => this.goToNextSlide(document.createEvent('Events')), time);
+    loopNext(time = 5000) {
+        if (this.loop) return;
+        this.loopFunction = setInterval(() => this.goToNextSlide(document.createEvent('Events')), time);
     }
 
     slideWidth() {
