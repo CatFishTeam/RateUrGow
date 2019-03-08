@@ -2,25 +2,32 @@ const express = require("express")
 const {createToken} = require("../libs/auth")
 const router = express.Router()
 const User = require("../models/user")
+const bcrypt = require('bcryptjs');
+
 
 router.post('/login_check', (req, res) => {
-    console.log(req.body)
     if (req.body.username && req.body.password) {
-        console.log(req.body)
-        User.findOne(req.body)
+        User.findOne({username: req.body.username})
             .then((user) => {
-                console.log(user)
                 if (user) {
-                    const token = createToken({
-                        firstName: user.firstName,
-                        lastName: user.lastName,
-                    })
-                    res.send({
-                        token,
-                        message: {
-                            success: "Vous etes bien connecte"
-                        }
-                    })
+                    if (bcrypt.compareSync(req.body.password, user.password)) {
+                        const token = createToken({
+                            firstName: user.firstName,
+                            lastName: user.lastName,
+                        })
+                        res.send({
+                            token,
+                            message: {
+                                success: "Vous etes bien connecte"
+                            }
+                        })
+                    } else {
+                        res.status(400).send({
+                            message: {
+                                error: "Invalid credentials"
+                            }
+                        })
+                    }
                 } else {
                     res.status(400).send({
                         message: {
@@ -38,19 +45,18 @@ router.post('/login_check', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    console.log(req.body)
     if (req.body.username && req.body.password && req.body.firstName && req.body.lastName) {
 
         User.findOne({
             username: req.body.username
         }).then((user) => {
-            console.log(user)
             if (user) {
                 res.status(400).send({
                     error: "L'utilisateur existe deja"
                 })
             } else {
                 const user = new User(req.body)
+                user.password = bcrypt.hashSync(req.body.password, 8);
                 user.save()
 
                 res.send({

@@ -34,6 +34,8 @@ const RightArrow = (props) => {
 }
 
 class Slider extends React.Component {
+    loopFunction = null
+
     constructor(props) {
         super(props)
 
@@ -50,6 +52,11 @@ class Slider extends React.Component {
         this.loopNext()
     }
 
+
+    componentWillUnmount() {
+        clearInterval(this.loopFunction)
+    }
+
     goToPrevSlide(e) {
         e.preventDefault();
         if (this.state.currentIndex === 0)
@@ -63,9 +70,6 @@ class Slider extends React.Component {
 
     goToNextSlide(e) {
         e.preventDefault();
-        // Exiting the method early if we are at the end of the images array.
-        // We also want to reset currentIndex and translateValue, so we return
-        // to the first image in the array.
         if (this.state.currentIndex === this.state.images.length - 1) {
             return this.setState({
                 currentIndex: 0,
@@ -73,16 +77,15 @@ class Slider extends React.Component {
             })
         }
 
-        // This will not run if we met the if condition above
         this.setState(prevState => ({
             currentIndex: prevState.currentIndex + 1,
             translateValue: prevState.translateValue + -(this.slideWidth())
         }));
     }
 
-    loopNext(time = 5000){
-        if(this.loop) return;
-        setInterval(() => this.goToNextSlide(document.createEvent('Events')), time);
+    loopNext(time = 5000) {
+        if (this.loop) return;
+        this.loopFunction = setInterval(() => this.goToNextSlide(document.createEvent('Events')), time);
     }
 
     slideWidth() {
