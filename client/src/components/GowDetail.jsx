@@ -26,6 +26,7 @@ function PhysicalDetails(props) {
                     count={5}
                     value={props.attributes.boobsRating}
                     size={24}
+                    edit={false}
                 />
             </li>
             <li>
@@ -36,6 +37,7 @@ function PhysicalDetails(props) {
                     count={5}
                     value={props.attributes.buttRating}
                     size={24}
+                    edit={false}
                 />
             </li>
         </ul>
@@ -53,6 +55,7 @@ function Skills(props) {
                     count={5}
                     value={props.attributes[key]}
                     size={24}
+                    edit={false}
                 />
             </li>
         )
@@ -77,6 +80,7 @@ function SexualPractices(props) {
                     count={5}
                     value={props.attributes[key]}
                     size={24}
+                    edit={false}
                 />
             </li>
         )

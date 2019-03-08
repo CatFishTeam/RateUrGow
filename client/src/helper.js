@@ -8,14 +8,14 @@ export default function GlobalRating(props) {
     console.log(props)
 
     calc += (props.gow.physical.boobsRating + props.gow.physical.buttRating) * 2
-    coef += 2*2
+    coef += 2 * 2
 
-    Object.keys(props.gow.skills).forEach(function(key) {
+    Object.keys(props.gow.skills).forEach(function (key) {
         calc += props.gow.skills[key]
         coef += 1
     });
 
-    Object.keys(props.gow.sexualPractices).forEach(function(key) {
+    Object.keys(props.gow.sexualPractices).forEach(function (key) {
         calc += props.gow.sexualPractices[key] * 3
         coef += 3
     });
@@ -24,8 +24,9 @@ export default function GlobalRating(props) {
         <ReactStars
             className="inline-flex"
             count={5}
-            value={calc/coef}
+            value={calc / coef}
             size={24}
+            edit={false}
         />
     )
 }
