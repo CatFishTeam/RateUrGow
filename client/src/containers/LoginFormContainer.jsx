@@ -5,6 +5,12 @@ import LoginForm from "../components/LoginForm";
 
 
 class LoginFormContainer extends Component {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.token) {
+            this.props.history.push("/")
+        }
+    }
+
     state = {
         username: "",
         password: "",

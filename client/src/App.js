@@ -8,6 +8,7 @@ import RegisterFormContainer from "./containers/RegisterFormContainer";
 import GowDetailContainer from "./containers/GowDetailContainer";
 import AddGowFormContainer from "./containers/AddGowFormContainer"
 
+
 function NoMatch() {
     return (
         <Fragment>
@@ -37,15 +38,10 @@ function PrivateRoute({component: Component, ...rest}) {
     );
 }
 
-function Logout() {
-    localStorage.clear()
-    return (
-        <Redirect
-            to={{
-                pathname: "/login",
-            }}
-        />
-    )
+function Logout(props) {
+    localStorage.clear();
+    props.history.push('/');
+    return ""
 }
 
 
@@ -63,7 +59,6 @@ function AppRouter() {
                         <Route path="/login/" component={LoginFormContainer}/>
                         <Route path="/logout/" component={Logout}/>
                         <Route path="/register/" component={RegisterFormContainer}/>
-                        {/*<Route path="/gows/" component={GowsContainer}/>*/}
                         <PrivateRoute path="/gow/add" component={AddGowFormContainer}/>
                         <Route path="/gow/:id" component={GowDetailContainer}/>
                         <Route component={NoMatch}/>

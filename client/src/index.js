@@ -4,6 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
+import watch from 'redux-watch'
 
 import rootReducer from './redux/reducers/index';
 
@@ -13,6 +14,16 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const rootEl = document.getElementById("root");
+
+let w = watch(store.getState, 'security.loggedUser')
+store.subscribe(w((newVal, oldVal, objectPath) => {
+    console.log('%s changed from %s to %s', objectPath, oldVal, newVal)
+    if(newVal !== oldVal){
+        this.props.history.push("/")
+        //window.location = "/"
+    }
+    // admin.name changed from JP to JOE
+}))
 
 ReactDOM.render(
     <Provider store={store}>
